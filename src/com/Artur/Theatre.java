@@ -8,18 +8,22 @@ public class Theatre {
 
     //We are not instantiating Comparator interface.
     //Anonymous inner Class implementing Comparator and providing an implementation of a single compare method.
-    static final Comparator<Seat> PRICE_ORDER = new Comparator<Seat>() {
-        @Override
-        public int compare(Seat seat1, Seat seat2) {
-            if(seat1.getPrice() < seat2.getPrice()){
-                return -1;
-            }else if (seat1.getPrice() > seat2.getPrice()){
-                return  1;
-            }else{
-                return 0;
+    static final Comparator<Seat> PRICE_ORDER;
+
+    static {
+        PRICE_ORDER = new Comparator<Seat>() {
+            @Override
+            public int compare(Seat seat1, Seat seat2) {
+                if (seat1.getPrice() < seat2.getPrice()) {
+                    return -1;
+                } else if (seat1.getPrice() > seat2.getPrice()) {
+                    return 1;
+                } else {
+                    return 0;
+                }
             }
-        }
-    };
+        };
+    }
 
 
     public Theatre(String theaterName, int numRows, int seatsPerRow) {
